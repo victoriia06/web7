@@ -2,212 +2,139 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Задание 4 WEB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <title>Галерея</title>
+    <!-- Подключаем стили для Slick -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .slick-slide {
+            margin: 0 10px;
+        }
+
+        .slick-prev:before, .slick-next:before {
+            color: black;
+        }
+
+        .gallery img {
+            width: 420px;
+            height: 550px;
+            object-fit: cover;
+
+            .pager {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        margin: 5px;
+        background-color: lightgray;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: black;
+    }
+        }
+
+        .pager {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            margin: 5px;
+            background-color: lightgray;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+            .dot.active {
+                background-color: black;
+            }
+
+    </style>
+
 </head>
 <body>
-    <header id="header" class="bg-primary text-white py-3">
-        <div class="container">
-            <img src="logo.png" alt="Логотип" class="logo">
-            <h1 class="text-center">Кубанский государственный университет</h1>
-            <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="http://kubsu.ru">Главная</a></li>
-                    <li class="nav-item"><a class="nav-link" href="http://kubsu.ru">Наш сайт</a></li>
-                    <li class="nav-item"><a class="nav-link" href="http://kubsu.ru">О нас</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col-md-3 sidebar">
-                <h2 class="text-center mb-4">Навигация</h2>
-                <ul>
-                    <li><a href="http://kubsu.ru" class="text-dark">Главная</a></li>
-                    <li><a href="http://kubsu.ru" class="text-dark">Наш сайт</a></li>
-                    <li><a href="http://kubsu.ru" class="text-dark">О нас</a></li>
-                </ul>
-            </div>
-            <div class="col-md-9">
-                <h2 class="text-center mb-4">Выполнение задания 4 по Web</h2>
-                <div class="list">
-                    <ol>
-                        <li><a href="http://kubsu.ru">Абсолютная гиперссылка на главную страницу сайта kubsu.ru</a></li>
-                        <li><a href="https://kubsu.ru/">Абсолютная на главную сайта kubsu.ru в протоколе https</a></li>
-                        <li><a href="https://kubsu.ru/"><img src="kubsu.jpg" alt="КубГУ" class="img-fluid"></a></li>
-                        <li><a href="http://kubsu.ru">Сокращенная ссылка на внутреннюю страницу</a></li>
-                        <li><a href="index.html">Сокращенная ссылка на главную страницу</a></li>
-                        <li><a href="#reg">Ссылка на фрагмент текущей страницы</a></li>
-                        <li>Одно из ведущих высших учебных заведений, расположенное в Краснодаре - <a href="https://kubsu.ru/">КубГУ</a>!</li>
-                        <li><a href="https://www.kubsu.ru/ru/university/library">Ссылка с тремя параметрами</a></li>
-                        <li><a href="index.html#reg">Ссылка с параметром id</a></li>
-                        <li><a href="index.html">Относительная ссылка на страницу в текущем каталоге</a></li>
-                        <li section id="about"><a href="http://kubsu.ru#sveden">Относительная ссылка на страницу в каталоге about</a></li>
-                        <li><a href="https://kubsu.ru/education">Относительная ссылка на страницу в каталоге уровнем выше текущего</a></li>
-                        <li><a href="https://kubsu.ru/education/programs">Относительная ссылка на страницу в каталоге двумя уровнями выше</a></li>
-                        <li><a href="https://kubsu.ru/ru/timetable/#main-content">Ссылка на фрагмент страницы стороннего сайта</a></li>
-                        <li>
-                            <map name="clickable">
-                                <area shape="rect" coords="0,0,100,100" href="https://kubsu.ru/" alt="Ссылка 1">
-                                <area shape="circle" coords="200,200,50" href="https://kubsu.ru/" alt="Ссылка 2">
-                                <img usemap="#clickable" src="image.jpg" alt="picture" class="img-fluid">
-                            </map>
-                        </li>
-                        <li><a href="">Пустой href</a></li>
-                        <li><a onclick="alert('Ссылка без href'); return false;">Без href</a></li>
-                        <li><a href="https://kubsu.ru/" rel="nofollow">Ссылка, по которой запрещен переход поисковикам</a></li>
-                        <li><a href="https://kubsu.ru/" rel="noopener noreferrer">Запрещенная для индексации поисковиками</a></li>
-                    </ol>
-                </div>
-
-                <main class="table mt-4">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th colspan="4" class="text-center">Список ссылок</th>
-                            </tr>
-                            <tr>
-                                <th>№</th>
-                                <th>Наименование</th>
-                                <th>Вид</th>
-                                <th>Ссылка</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="colored-cell">1</td>
-                                <td class="color-link">Этот сайт</td>
-                                <td>
-                                    <a href="index.html">index.html</a>
-                                </td>
-                                <td>
-                                    <a href="index.html">Ссылка</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="colored-cell">2</td>
-                                <td>Регистрация</td>
-                                <td>
-                                    <a href="index.html#reg">index.html#reg</a>
-                                </td>
-                                <td>
-                                    <a href="index.html#reg">Ссылка</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="colored-cell">3</td>
-                                <td>Главный сайт КубГУ</td>
-                                <td>
-                                    <a href="https://kubsu.ru">https://kubsu.ru</a>
-                                </td>
-                                <td>
-                                    <a href="https://kubsu.ru">Ссылка</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="colored-cell">4</td>
-                                <td>Об КубГУ</td>
-                                <td>
-                                    <a href="http://kubsu.ru#sveden">http://kubsu.ru#sveden</a>
-                                </td>
-                                <td>
-                                    <a href="http://kubsu.ru#sveden">Ссылка</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </main>
-
-                <div class="form mt-4">
-                    <h2 class="text-center mb-4">Регистрация</h2>
-                    <form action="/index.php" method="POST" class="needs-validation" novalidate>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="field-name-1">ФИО:</label>
-                                <input type="text" class="form-control" id="field-name-1" placeholder="Иванов Иван Иванович" required>
-                                <div class="invalid-feedback">Пожалуйста, введите ФИО.</div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="field-tel">Номер телефона:</label>
-                                <input type="tel" class="form-control" id="field-tel" placeholder="Введите ваш номер" required>
-                                <div class="invalid-feedback">Пожалуйста, введите номер телефона.</div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="field-email">Email:</label>
-                                <input type="email" class="form-control" id="field-email" placeholder="Введите вашу почту" required>
-                                <div class="invalid-feedback">Пожалуйста, введите корректный адрес электронной почты.</div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="field-date">Дата рождения:</label>
-                                <input type="date" class="form-control" id="field-date" required>
-                                <div class="invalid-feedback">Пожалуйста, выберите дату рождения.</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Пол:</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="radio-group-1" id="radio-male" value="male" required>
-                                <label class="form-check-label" for="radio-male">Мужской</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="radio-group-1" id="radio-female" value="female" required>
-                                <label class="form-check-label" for="radio-female">Женский</label>
-                            </div>
-                            <div class="invalid-feedback">Пожалуйста, выберите пол.</div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="field-name-4">Любимый язык программирования:</label>
-                                <select class="form-control" id="field-name-4" multiple required>
-                                    <option value="Pascal">Pascal</option>
-                                    <option value="C">C</option>
-                                    <option value="C++">C++</option>
-                                    <option value="JavaScript">JavaScript</option>
-                                    <option value="PHP">PHP</option>
-                                    <option value="Haskell">Haskell</option>
-                                    <option value="Clojure">Clojure</option>
-                                    <option value="Prolog">Prolog</option>
-                                    <option value="Scala">Scala</option>
-                                </select>
-                                <div class="invalid-feedback">Пожалуйста, выберите хотя бы один язык программирования.</div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="field-name-2">Биография:</label>
-                                <textarea class="form-control" id="field-name-2" rows="3" placeholder="Расскажите о себе" required></textarea>
-                                <div class="invalid-feedback">Пожалуйста, введите биографию.</div>
-                            </div>
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="check-1" required>
-                            <label class="form-check-label" for="check-1">С контрактом ознакомлен(а)</label>
-                            <div class="invalid-feedback">Пожалуйста, подтвердите ознакомление с контрактом.</div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div class="gallery">
+        <div><img src="1.jpg" alt="Image 1" /></div>
+        <div><img src="2.jpg" alt="Image 2" /></div>
+        <div><img src="3.jpg" alt="Image 3" /></div>
+        <div><img src="4.jpg" alt="Image 4" /></div>
+        <div><img src="5.jpg" alt="Image 5" /></div>
+        <div><img src="6.jpg" alt="Image 6" /></div>
+        <div><img src="7.jpg" alt="Image 7" /></div>
+        <div><img src="8.jpg" alt="Image 8" /></div>
     </div>
 
-    <footer class="bg-primary text-white text-center py-3">
-        <p>(c) Виктория Кваша</p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./script.js"></script>
+    <div class="pager">
+        <span class="dot" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+    </div>
+
+    <!-- Подключаем jQuery и Slick -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const $gallery = $('.gallery');
+            const $dots = $('.dot');
+
+            $gallery.slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }
+                ]
+            });
+
+            // Обновление активного индикатора
+            $gallery.on('afterChange', function (event, slick, currentSlide) {
+                $dots.removeClass('active');
+                $dots.eq(currentSlide / 3).addClass('active'); // делим на 3, чтобы определить текущую страницу
+            });
+
+            // Установка обработчиков для кружочков
+            $dots.on('click', function () {
+                const index = $(this).data('slide');
+                $gallery.slick('slickGoTo', index * 3); // переходим к соответствующему слайду
+            });
+        });
+    </script>
+
 </body>
 </html>
